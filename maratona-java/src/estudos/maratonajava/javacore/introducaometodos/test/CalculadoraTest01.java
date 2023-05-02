@@ -7,6 +7,16 @@ public class CalculadoraTest01 {
         Calculadora calculadora = new Calculadora();
         calculadora.somaDoisNumeros();
         calculadora.subtraiDoisNumeros();
-        System.out.println("FInalizando CalculadoraTest01");
+        System.out.println("\nFinalizando CalculadoraTeste soma e subtração");
+
+
+        calculadora.multiplicaDoisNumeros(20, 30);
+        calculadora.multiplicaDoisNumeros(10, 2);
+        System.out.println("\nFinalizando CalculadoraTeste multiplicação");
+
+        int result = (int) calculadora.divideDoisNumeros(20,2);
+        System.out.println(result);
+        System.out.println("\nFinalizando CalculadoraTeste divisão");
+
     }
 }
