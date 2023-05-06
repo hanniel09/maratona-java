@@ -1,11 +1,15 @@
 package estudos.maratonajava.javacore.modificadorfinal.dominio;
 
-import java.security.cert.CertPath;
-
-public class Carro {
+public class Comprador {
     private String nome;
-    public static final double VELOCIDADE_LIMITE = 250;
-    public final Comprador COMPRADOR = new Comprador();
+
+
+    @Override
+    public String toString() {
+        return "Comprador{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 
     public String getNome() {
         return nome;
