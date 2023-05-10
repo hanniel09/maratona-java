@@ -1,4 +1,10 @@
 package estudos.maratonajava.javacore.polimorfismo.servico;
 
-public class RepositorioMemoria {
+import estudos.maratonajava.javacore.polimorfismo.repositorio.Repositorio;
+
+public class RepositorioMemoria implements Repositorio {
+    @Override
+    public void salvar() {
+        System.out.println("Salvando em Memoria");
+    }
 }
