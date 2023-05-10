@@ -1,5 +1,6 @@
 package estudos.maratonajava.javacore.interfaces.test;
 
+import estudos.maratonajava.javacore.interfaces.dominio.DataLoader;
 import estudos.maratonajava.javacore.interfaces.dominio.DatabaseLoader;
 import estudos.maratonajava.javacore.interfaces.dominio.FileLoader;
 
@@ -15,5 +16,7 @@ public class DataLoaderTest01 {
 
         databaseLoader.checkPermission();
         fileLoader.checkPermission();
+        DataLoader.retrievMaxDataSize();
+        DatabaseLoader.retrievMaxDataSize();
     }
 }
