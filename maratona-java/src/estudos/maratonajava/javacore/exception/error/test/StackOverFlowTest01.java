@@ -1,4 +1,4 @@
-package estudos.maratonajava.javacore.exception.test;
+package estudos.maratonajava.javacore.exception.error.test;
 
 public class StackOverFlowTest01 {
     //atenção!!! esse codigo retorna um erro.
