@@ -3,6 +3,7 @@ package estudos.maratonajava.javacore.exception.runtime.test;
 public class RunTimeExceptionTest03 {
     public static void main(String[] args) {
         abreConexao();
+        abreConexao02();
     }
 
     private static String abreConexao() {
