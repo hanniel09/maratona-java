@@ -8,9 +8,14 @@ public class StringPerfomaceTest01 {
         System.out.println("Tempo gasto para a String " + (fim - inicio) + " ms");
 
         inicio = System.currentTimeMillis();
-        concatStringBuilder(300_000);
+        concatStringBuilder(3_000_000);
         fim = System.currentTimeMillis();
         System.out.println("Tempo gasto para a StringBuilder " + (fim - inicio) + " ms");
+
+        inicio = System.currentTimeMillis();
+        concatStringBuffer(3_000_000);
+        fim = System.currentTimeMillis();
+        System.out.println("Tempo gasto para a StringBuffer " + (fim - inicio) + " ms");
     }
     private static void concatString(int tamanho){
         String texto = "";
@@ -26,7 +31,7 @@ public class StringPerfomaceTest01 {
         }
     }
     private static void concatStringBuffer(int tamanho){
-        StringBuilder sb = new StringBuilder(tamanho);
+        StringBuffer sb = new StringBuffer(tamanho);
         for (int i = 0; i < tamanho; i++) {
             sb.append(i);
         }
