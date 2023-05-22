@@ -1,4 +1,4 @@
-package estudos.maratonajava.javacore.dates.test;
+package estudos.maratonajava.javacore.formatacao.test;
 
 import java.util.Date;
 
