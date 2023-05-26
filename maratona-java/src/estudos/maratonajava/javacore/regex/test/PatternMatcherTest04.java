@@ -14,7 +14,7 @@ public class PatternMatcherTest04 {
         // [] = Letras dentro do Rage ["a-zA-Z"]
         // ? Zero ou uma
         // * Zero ou mais
-        // + uma ou mais
+        // + uma oumais
         // {n,m} de n até m
         // ()
         // |
