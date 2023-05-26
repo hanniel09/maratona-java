@@ -12,9 +12,15 @@ public class PatternMatcherTest03 {
         // \w = a-z A-Z, digítos, _
         // \W = Tudo que não for inclusivo no \w
         // [] = Letras dentro do Rage ["a-zA-Z"]
-        // String regex = "[a-zA-E]";
-        String regex = "0[xX][0-9a-fA-F]";
-        String texto = "12 0x 0X 0xFFABC 0x109 0x1";
+        // ? Zero ou uma
+        // * Zero ou mais
+        // + uma ou mais
+        // {n,m} de n até m
+        // ()
+        // |
+        // $
+        String regex = "0[xX]([0-9a-fA-F])+(\\s|$)";
+        String texto = "12 0x 0X 0xFFABC 0x10G 0x1";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
         System.out.println("texto:  " + texto);
@@ -24,9 +30,6 @@ public class PatternMatcherTest03 {
         while(matcher.find()){
             System.out.print(matcher.start()+" "+matcher.group()+"\n" );
         }
-
-        int numeroHex = 0x1;
-        System.out.println(numeroHex);
 
     }
 }
