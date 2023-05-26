@@ -3,7 +3,7 @@ package estudos.maratonajava.javacore.regex.test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PatternMatcherTest02 {
+public class PatternMatcherTest03 {
     public static void main(String[] args) {
         // \d = Todos os dígitos numericos
         // \D = Tudo o que não for digitos
