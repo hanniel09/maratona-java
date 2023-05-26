@@ -3,7 +3,7 @@ package estudos.maratonajava.javacore.regex.test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PatternMatcherTest03 {
+public class PatternMatcherTest04 {
     public static void main(String[] args) {
         // \d = Todos os dígitos numericos
         // \D = Tudo o que não for digitos
@@ -20,8 +20,11 @@ public class PatternMatcherTest03 {
         // |
         // $
         // . 1.3 = 123, 133, 1@3, 1A3
-        String regex = "0[xX]([0-9a-fA-F])+(\\s|$)";
-        String texto = "12 0x 0X 0xFFABC 0x10G 0x1";
+        String regex = "([a-zA-Z0-9\\._-])+@([a-zA-Z])+(\\.([a-zA-Z])+)+";
+        String texto = "luffy@hotmai.com, 123jotaro@gmail.com, #@!zoro@mail.br, teste@gmail.com.br, sakura@mail";
+        System.out.println("Email valido");
+        System.out.println("#@!zoro@mail.br".matches(regex));
+        System.out.println(texto.split(",")[1].trim());
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
         System.out.println("texto:  " + texto);
