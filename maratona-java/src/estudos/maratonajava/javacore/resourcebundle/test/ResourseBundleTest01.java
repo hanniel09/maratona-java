@@ -15,7 +15,7 @@ public class ResourseBundleTest01 {
 
         System.out.println(bundle.getString("hi"));
         System.out.println(bundleBr.getString("hi"));
-        
+
     }
 }
 
