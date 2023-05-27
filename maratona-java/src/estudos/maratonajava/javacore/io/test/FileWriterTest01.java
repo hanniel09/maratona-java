@@ -8,7 +8,7 @@ public class FileWriterTest01 {
     public static void main(String[] args) {
         File file = new File("file.txt");
         try ( FileWriter fw = new FileWriter(file, true)){
-            fw.write("Hanniel is a best developer in the world \n the best backend developer\n");
+            fw.write("Hanniel is the best developer in the world \n the best backend developer\n");
             fw.flush();
         } catch (IOException ex) {
             ex.printStackTrace();
