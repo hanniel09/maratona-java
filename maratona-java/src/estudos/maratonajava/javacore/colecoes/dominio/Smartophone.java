@@ -19,6 +19,12 @@ public class Smartophone {
 
     }
 
+    @Override
+    public int hashCode() {
+        return serialNumber == null ? 0 : this.serialNumber.hashCode();
+
+    }
+
     public String getSerialNumber() {
         return serialNumber;
     }
