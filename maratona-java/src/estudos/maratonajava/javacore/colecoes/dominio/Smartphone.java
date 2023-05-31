@@ -1,10 +1,10 @@
 package estudos.maratonajava.javacore.colecoes.dominio;
 
-public class Smartophone {
+public class Smartphone {
     private String serialNumber;
     private String marca;
 
-    public Smartophone(String serialNumber, String marca) {
+    public Smartphone(String serialNumber, String marca) {
         this.serialNumber = serialNumber;
         this.marca = marca;
     }
@@ -14,8 +14,8 @@ public class Smartophone {
         if(obj == null) return false;
         if(this == obj) return true;
         if(this.getClass() != obj.getClass()) return false;
-        Smartophone smartophone = (Smartophone) obj;
-        return serialNumber != null && serialNumber.equals(smartophone.serialNumber) && marca.equals(smartophone.marca);
+        Smartphone smartphone = (Smartphone) obj;
+        return serialNumber != null && serialNumber.equals(smartphone.serialNumber) && marca.equals(smartphone.marca);
 
     }
 
@@ -23,6 +23,14 @@ public class Smartophone {
     public int hashCode() {
         return serialNumber == null ? 0 : this.serialNumber.hashCode();
 
+    }
+
+    @Override
+    public String toString() {
+        return "Smartphone{" +
+                "serialNumber='" + serialNumber + '\'' +
+                ", marca='" + marca + '\'' +
+                '}';
     }
 
     public String getSerialNumber() {
