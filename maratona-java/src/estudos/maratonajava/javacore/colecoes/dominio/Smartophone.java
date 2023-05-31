@@ -9,6 +9,16 @@ public class Smartophone {
         this.marca = marca;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) return false;
+        if(this == obj) return true;
+        if(this.getClass() != obj.getClass()) return false;
+        Smartophone smartophone = (Smartophone) obj;
+        return serialNumber != null && serialNumber.equals(smartophone.serialNumber) && marca.equals(smartophone.marca);
+
+    }
+
     public String getSerialNumber() {
         return serialNumber;
     }
