@@ -30,6 +30,6 @@ public class ListArrayConversaoTest01 {
         System.out.println(numerosList);
 
         List<String> strings = Arrays.asList("1", "2", "3");
-        
+
     }
 }
