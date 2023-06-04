@@ -14,6 +14,5 @@ public class LambdaTest01 {
         for (T e : list) {
             consumer.accept(e);
         }
-
     }
 }
