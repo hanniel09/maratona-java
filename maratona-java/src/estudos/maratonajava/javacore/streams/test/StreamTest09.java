@@ -27,7 +27,7 @@ public class StreamTest09 {
         try(Stream<String>lines = Files.lines(Paths.get("file.txt"))){
 
             lines.filter(l -> l.contains("Java")).forEach(System.out::println);
-            
+
         }catch (IOException e){
             e.printStackTrace();
         }
