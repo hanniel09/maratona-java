@@ -4,17 +4,15 @@ import estudos.maratonajava.javacore.streams.dominio.Category;
 import estudos.maratonajava.javacore.streams.dominio.LightNovel;
 import estudos.maratonajava.javacore.streams.dominio.Promotion;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
+import java.util.*;
 import java.util.stream.Collectors;
 
-import static estudos.maratonajava.javacore.streams.dominio.Promotion.*;
+import static estudos.maratonajava.javacore.streams.dominio.Promotion.NORMAL_PRICE;
+import static estudos.maratonajava.javacore.streams.dominio.Promotion.UNDER_PROMOTION;
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.mapping;
 
-public class StreamTest13 {
+public class StreamTest15 {
     private static List<LightNovel> lightNovels = new ArrayList<>(List.of(
             new LightNovel("Tensei Shittara", 8.99, Category.FANTASY),
             new LightNovel("Overlord", 10.99, Category.FANTASY),
@@ -27,23 +25,20 @@ public class StreamTest13 {
     ));
 
     public static void main(String[] args) {
-        Map<Promotion, List<LightNovel>> collect = lightNovels
-                .stream()
-                .collect(groupingBy(ln -> {
-                            return ln.getPrice() < 6 ? UNDER_PROMOTION : NORMAL_PRICE;
-                        }
-                ));
+        Map<Category, DoubleSummaryStatistics> collect = lightNovels.stream()
+                .collect(groupingBy(LightNovel::getCategory, Collectors.summarizingDouble(LightNovel::getPrice)));
         System.out.println(collect);
-        // Map<Category, Map<Promotion, List<ligthNovel>>>
 
-        Map<Category, Map<Promotion, List<LightNovel>>> collect1 = lightNovels
-                .stream()
-                .collect(groupingBy(LightNovel::getCategory, groupingBy(StreamTest13::getPromotion
-                )));
+        Map<Category, Set<Promotion>> collect1 = lightNovels.stream()
+                .collect(groupingBy(LightNovel::getCategory, mapping(StreamTest15::getPromotion,
+                        Collectors.toSet())));
         System.out.println(collect1);
 
+        Map<Category, LinkedHashSet<Promotion>> collect2 = lightNovels.stream()
+                .collect(groupingBy(LightNovel::getCategory, mapping(StreamTest15::getPromotion,
+                        Collectors.toCollection(LinkedHashSet::new))));
+        System.out.println(collect2);
     }
-
     private static Promotion getPromotion(LightNovel ln) {
         return ln.getPrice() < 6 ? UNDER_PROMOTION : NORMAL_PRICE;
     }
