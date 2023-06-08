@@ -23,7 +23,7 @@ public class ThreadAccountTest01 implements Runnable {
             }
         }
     }
-    
+
     private void withdrawal(int amount) {
         System.out.println(getThreadName() + " ###Fora do synchronized");
         synchronized (account) {
