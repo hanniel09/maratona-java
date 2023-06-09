@@ -17,7 +17,7 @@ class MapReadWrite {
         rwl.writeLock().lock();
         try {
             if (rwl.isWriteLocked()) {
-                System.out.printf("%s obteve o Write lock", Thread.currentThread().getName());
+                System.out.printf("%s obteve o Write lock%n", Thread.currentThread().getName());
             }
             map.put(key, value);
             Thread.sleep(500);
@@ -28,11 +28,11 @@ class MapReadWrite {
         }
     }
 
-    public Set<String> allKeys(){
+    public Set<String> allKeys() {
         rwl.readLock().lock();
-        try{
+        try {
             return map.keySet();
-        }finally {
+        } finally {
             rwl.readLock().unlock();
         }
     }
@@ -51,7 +51,21 @@ public class ReentrantReadWriteLockTest01 {
 
         Runnable reader = () -> {
             if (rwl.isWriteLocked()) {
-
+                System.out.println("WRITE LOCKED!");
+            }
+            rwl.readLock().lock();
+            System.out.println("FINALLY I GOT THE DAMN LOCK");
+            try {
+                System.out.println(Thread.currentThread().getName() + " " + mapReadWrite.allKeys());
+            } finally {
+            rwl.readLock().unlock();
             }
         };
+        Thread t1 = new Thread(writer);
+        Thread t2 = new Thread(reader);
+        Thread t3 = new Thread(reader);
+        t1.start();
+        t2.start();
+        t3.start();
+    }
 }
