@@ -1,11 +1,13 @@
-package estudos.maratonajava.javacore.threads.test;
+package estudos.maratonajava.javacore.concorrencia.test;
 
-import estudos.maratonajava.javacore.threads.dominio.Members;
-import estudos.maratonajava.javacore.threads.service.EmailDeliveryService;
+
+
+import estudos.maratonajava.javacore.concorrencia.dominio.Members;
+import estudos.maratonajava.javacore.concorrencia.service.EmailDeliveryService;
 
 import javax.swing.*;
 
-public class        EmailDeliveryTest01 {
+public class EmailDeliveryTest01 {
     public static void main(String[] args) {
         Members members = new Members();
         Thread jiraya = new Thread(new EmailDeliveryService(members), "Jiraya");

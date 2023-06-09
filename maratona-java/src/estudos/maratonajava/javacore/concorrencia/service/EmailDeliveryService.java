@@ -1,6 +1,7 @@
-package estudos.maratonajava.javacore.threads.service;
+package estudos.maratonajava.javacore.concorrencia.service;
 
-import estudos.maratonajava.javacore.threads.dominio.Members;
+
+import estudos.maratonajava.javacore.concorrencia.dominio.Members;
 
 public class EmailDeliveryService implements Runnable {
     private final Members members;
