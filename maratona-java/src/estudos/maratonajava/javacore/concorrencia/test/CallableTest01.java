@@ -19,7 +19,7 @@ public class CallableTest01 {
         ExecutorService executorsService = Executors.newFixedThreadPool(2);
         Future<String> future = executorsService.submit(randomNumberCallable);
         String s = future.get();
-        System.out.printf("Program finished %s", s);
+        System.out.printf("Program finished %s", ss);
         System.out.println("Program finished");
         executorsService.shutdown();
     }
