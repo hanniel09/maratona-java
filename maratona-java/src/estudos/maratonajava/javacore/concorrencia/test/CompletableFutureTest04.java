@@ -26,7 +26,7 @@ public class CompletableFutureTest04 {
         long end = System.currentTimeMillis();
         System.out.printf("Time passed to searchPricesSync %dms%n", (end - start));
     }
-    
+
     private static void searchPricesWithDiscountAsync(StoreServiceWithDiscount service){
         long start = System.currentTimeMillis();
         List<String> stores = List.of("Store 1", "Store 2", "Store 3", "Store 4");
