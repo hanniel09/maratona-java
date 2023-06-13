@@ -20,7 +20,7 @@ public class AircraftSingletonLazyTest01 {
 
     private static void bookSeat(String seat){
         System.out.println(AircraftSingletonLazy.getInstance());
-        AircraftSingletonLazy aircraftSingletonEager = AircraftSingletonLazy.getInstance();
-        System.out.println(aircraftSingletonEager.bookSeat(seat));
+        AircraftSingletonLazy aircraftSingletonLazy = AircraftSingletonLazy.getInstance();
+        System.out.println(aircraftSingletonLazy.bookSeat(seat));
     }
 }
