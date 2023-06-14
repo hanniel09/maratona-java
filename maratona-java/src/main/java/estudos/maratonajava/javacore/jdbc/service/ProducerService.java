@@ -33,6 +33,9 @@ public class ProducerService {
     public static void showDriverMetaData() {
         ProducerRepository.showDriveMetaData();
     }
+    public static void showTypeScrollWorking() {
+        ProducerRepository.showTypeScrollWorking();
+    }
 
     private static void requireValidId(Integer id) {
         if (id == null || id <= 0) {
