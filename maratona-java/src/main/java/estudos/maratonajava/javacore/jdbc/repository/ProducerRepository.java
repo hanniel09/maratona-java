@@ -113,6 +113,31 @@ public class ProducerRepository {
         ps.setString(1, String.format("%%%s%%",name));
         return ps;
     }
+    public static List<Producer> findByNameCallableStatement(String name) {
+        log.info("Finding Producers by name");
+        List<Producer> producers = new ArrayList<>();
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement ps = callableStatementFindByName(conn, name);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Producer producer = Producer
+                        .builder()
+                        .id(rs.getInt("id"))
+                        .name(rs.getString("name"))
+                        .build();
+                producers.add(producer);
+            }
+        } catch (SQLException e) {
+            log.error("Error while trying to find producers by name", e);
+        }
+        return producers;
+    }
+    private static CallableStatement callableStatementFindByName(Connection conn, String name) throws SQLException {
+        String sql = "CALL `anime_store`.`sp_ger_producer_by_name`(?);";
+        CallableStatement cs = conn.prepareCall(sql);
+        cs.setString(1, String.format("%%%s%%",name));
+        return cs;
+    }
 
     public static void showProducerMetaData() {
         log.info("Showing Producers by name");
