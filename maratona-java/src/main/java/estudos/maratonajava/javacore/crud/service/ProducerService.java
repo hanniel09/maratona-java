@@ -31,7 +31,7 @@ public class ProducerService {
         int id = Integer.parseInt(SCANNER.nextLine());
         System.out.println("Are you sure? Y/N");
         String choice = SCANNER.nextLine();
-        if ("s".equalsIgnoreCase(choice)) {
+        if ("y".equalsIgnoreCase(choice)) {
             ProducerRepository.delete(id);
         }
     }
